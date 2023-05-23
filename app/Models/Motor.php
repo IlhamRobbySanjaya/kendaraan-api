@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Motor extends Eloquent
+class Motor extends Model
 {
-    protected $fillable = ['mesin', 'tipe_suspensi', 'tipe_transmisi'];
+    protected $fillable = [
+        'mesin',
+        'tipe_suspensi',
+        'tipe_transmisi',
+    ];
 
     public function kendaraan()
     {

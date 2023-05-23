@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "719e1500160dade10118225bba6a27c0",
+    "content-hash": "e2ae01e9e02096c1f8676649bbb10dff",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -632,21 +632,21 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.6.1",
+            "version": "7.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "8444a2bacf1960bc6a2b62ed86b8e72e11eebe51"
+                "reference": "fb7566caccf22d74d1ab270de3551f72a58399f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8444a2bacf1960bc6a2b62ed86b8e72e11eebe51",
-                "reference": "8444a2bacf1960bc6a2b62ed86b8e72e11eebe51",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/fb7566caccf22d74d1ab270de3551f72a58399f5",
+                "reference": "fb7566caccf22d74d1ab270de3551f72a58399f5",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.5",
+                "guzzlehttp/promises": "^1.5.3 || ^2.0",
                 "guzzlehttp/psr7": "^1.9.1 || ^2.4.5",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
@@ -658,7 +658,8 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.1",
                 "ext-curl": "*",
-                "php-http/client-integration-tests": "^3.0",
+                "php-http/client-integration-tests": "dev-master#2c025848417c1135031fdf9c728ee53d0a7ceaee as 3.0.999",
+                "php-http/message-factory": "^1.1",
                 "phpunit/phpunit": "^8.5.29 || ^9.5.23",
                 "psr/log": "^1.1 || ^2.0 || ^3.0"
             },
@@ -737,7 +738,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.6.1"
+                "source": "https://github.com/guzzle/guzzle/tree/7.7.0"
             },
             "funding": [
                 {
@@ -753,38 +754,37 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-15T20:43:01+00:00"
+            "time": "2023-05-21T14:04:53+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "1.5.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "b94b2807d85443f9719887892882d0329d1e2598"
+                "reference": "3a494dc7dc1d7d12e511890177ae2d0e6c107da6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/b94b2807d85443f9719887892882d0329d1e2598",
-                "reference": "b94b2807d85443f9719887892882d0329d1e2598",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/3a494dc7dc1d7d12e511890177ae2d0e6c107da6",
+                "reference": "3a494dc7dc1d7d12e511890177ae2d0e6c107da6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "php": "^7.2.5 || ^8.0"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "^4.4 || ^5.1"
+                "bamarni/composer-bin-plugin": "^1.8.1",
+                "phpunit/phpunit": "^8.5.29 || ^9.5.23"
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5-dev"
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": false
                 }
             },
             "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
                 "psr-4": {
                     "GuzzleHttp\\Promise\\": "src/"
                 }
@@ -821,7 +821,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/1.5.2"
+                "source": "https://github.com/guzzle/promises/tree/2.0.0"
             },
             "funding": [
                 {
@@ -837,7 +837,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-28T14:55:35+00:00"
+            "time": "2023-05-21T13:50:22+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1802,22 +1802,22 @@
         },
         {
             "name": "mongodb/mongodb",
-            "version": "1.15.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "3a681a3b2f2c0ebac227a3b86bb9057d0e6eb8f8"
+                "reference": "e4a7594ac4b31635fa77455c4038a7013024ba28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/3a681a3b2f2c0ebac227a3b86bb9057d0e6eb8f8",
-                "reference": "3a681a3b2f2c0ebac227a3b86bb9057d0e6eb8f8",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/e4a7594ac4b31635fa77455c4038a7013024ba28",
+                "reference": "e4a7594ac4b31635fa77455c4038a7013024ba28",
                 "shasum": ""
             },
             "require": {
                 "ext-hash": "*",
                 "ext-json": "*",
-                "ext-mongodb": "^1.15.0",
+                "ext-mongodb": "^1.13.0",
                 "jean85/pretty-package-versions": "^1.2 || ^2.0.1",
                 "php": "^7.2 || ^8.0",
                 "symfony/polyfill-php80": "^1.19"
@@ -1825,13 +1825,12 @@
             "require-dev": {
                 "doctrine/coding-standard": "^9.0",
                 "squizlabs/php_codesniffer": "^3.6",
-                "symfony/phpunit-bridge": "^5.2",
-                "vimeo/psalm": "^4.28"
+                "symfony/phpunit-bridge": "^5.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15.x-dev"
+                    "dev-master": "1.12.x-dev"
                 }
             },
             "autoload": {
@@ -1866,9 +1865,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mongodb/mongo-php-library/issues",
-                "source": "https://github.com/mongodb/mongo-php-library/tree/1.15.0"
+                "source": "https://github.com/mongodb/mongo-php-library/tree/1.12.0"
             },
-            "time": "2022-11-23T04:45:35+00:00"
+            "time": "2022-03-23T20:18:39+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6009,6 +6008,56 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
+            "name": "jason-guru/laravel-make-repository",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jason-guru/laravel-make-repository.git",
+                "reference": "693d3d189c0b19262a896eb888c3a7b870a2de43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jason-guru/laravel-make-repository/zipball/693d3d189c0b19262a896eb888c3a7b870a2de43",
+                "reference": "693d3d189c0b19262a896eb888c3a7b870a2de43",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JasonGuru\\LaravelMakeRepository\\RepositoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JasonGuru\\LaravelMakeRepository\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "G Jason Sharma",
+                    "email": "g.jason.sharma@gmail.com"
+                }
+            ],
+            "description": "A simple package to create a make:repository command for Laravel 5+",
+            "support": {
+                "issues": "https://github.com/jason-guru/laravel-make-repository/issues",
+                "source": "https://github.com/jason-guru/laravel-make-repository/tree/0.0.3"
+            },
+            "time": "2020-10-24T13:21:42+00:00"
+        },
+        {
             "name": "laravel/sail",
             "version": "v1.22.0",
             "source": {
@@ -7921,5 +7970,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

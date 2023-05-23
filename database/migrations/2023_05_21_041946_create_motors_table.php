@@ -6,24 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMotorsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('motors', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('motors', function (Blueprint $collection) {
+            $collection->id();
+            $collection->foreignId('kendaraan_id')->constrained('kendaraan')->onDelete('cascade');
+            $collection->string('mesin');
+            $collection->string('tipe_suspensi');
+            $collection->string('tipe_transmisi');
+            $collection->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('motors');

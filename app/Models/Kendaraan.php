@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Jenssegers\Mongodb\Eloquent\Model;
 
-class Kendaraan extends Eloquent
+class Kendaraan extends Model
 {
-    protected $collection = 'kendaraans';
-    protected $fillable = ['tahun_keluaran', 'warna', 'harga'];
+    protected $collection = 'kendaraan';
+
+    protected $fillable = [
+        'tahun_keluaran',
+        'warna',
+        'harga',
+    ];
 
     public function motor()
     {

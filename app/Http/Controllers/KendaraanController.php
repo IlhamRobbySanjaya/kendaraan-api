@@ -2,55 +2,78 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kendaraan;
+use App\Repositories\KendaraanRepository;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
 {
-    public function index()
-    {
-        $kendaraans = Kendaraan::all();
+    private $kendaraanRepository;
 
-        return response()->json(['data' => $kendaraans], 200);
+    public function __construct(KendaraanRepository $kendaraanRepository)
+    {
+        $this->kendaraanRepository = $kendaraanRepository;
     }
 
-    public function store(Request $request)
+    public function index()
     {
-        $request->validate([
-            'tahun_keluaran' => 'required',
-            'warna' => 'required',
-            'harga' => 'required',
-            'type' => 'required',
-            'attributes' => 'required'
-        ]);
+        $kendaraan = $this->kendaraanRepository->all();
 
-        $kendaraan = Kendaraan::create([
-            'tahun_keluaran' => $request->tahun_keluaran,
-            'warna' => $request->warna,
-            'harga' => $request->harga
-        ]);
-
-        if ($request->type === 'motor') {
-            $kendaraan->motor()->create($request->attributes);
-        } elseif ($request->type === 'mobil') {
-            $kendaraan->mobil()->create($request->attributes);
-        }
-
-        return response()->json(['message' => 'Kendaraan created successfully'], 201);
+        return response()->json($kendaraan);
     }
 
     public function show($id)
     {
-        $kendaraan = Kendaraan::findOrFail($id);
+        $kendaraan = $this->kendaraanRepository->find($id);
 
-        return response()->json(['data' => $kendaraan], 200);
+        if (!$kendaraan) {
+            return response()->json(['message' => 'Kendaraan not found'], 404);
+        }
+
+        return response()->json($kendaraan);
     }
 
-    public function destroy($id)
+    public function store(Request $request)
     {
-        $kendaraan = Kendaraan::findOrFail($id);
-        $kendaraan->delete();
+        $data = $request->validate([
+            'kendaraan.tahun_keluaran' => 'required|integer',
+            'kendaraan.warna' => 'required|string',
+            'kendaraan.harga' => 'required|numeric',
+            'jenis' => 'required|in:motor,mobil',
+            'motor.mesin' => 'required_if:jenis,motor|string',
+            'motor.tipe_suspensi' => 'required_if:jenis,motor|string',
+            'motor.tipe_transmisi' => 'required_if:jenis,motor|string',
+            'mobil.mesin' => 'required_if:jenis,mobil|string',
+            'mobil.kapasitas_penumpang' => 'required_if:jenis,mobil|integer',
+            'mobil.tipe' => 'required_if:jenis,mobil|string',
+        ]);
 
-        return response()->json(['message' => 'Kendaraan deleted successfully'], 200);
+        $kendaraan = $this->kendaraanRepository->create($data);
+
+        return response()->json($kendaraan, 201);
+    }
+
+    public function getStokKendaraan()
+    {
+        $stokKendaraan = $this->kendaraanRepository->getStokKendaraan();
+
+        return response()->json($stokKendaraan);
+    }
+
+    public function penjualanKendaraan($id)
+    {
+        $kendaraan = $this->kendaraanRepository->penjualanKendaraan($id);
+
+        if (!$kendaraan) {
+            return response()->json(['message' => 'Kendaraan not found'], 404);
+        }
+
+        return response()->json(['message' => 'Kendaraan sold successfully']);
+    }
+
+    public function laporanPenjualan()
+    {
+        $laporan = $this->kendaraanRepository->laporanPenjualan();
+
+        return response()->json($laporan);
     }
 }

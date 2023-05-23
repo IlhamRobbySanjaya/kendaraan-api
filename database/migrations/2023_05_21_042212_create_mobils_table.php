@@ -6,24 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMobilsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('mobils', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('mobils', function (Blueprint $collection) {
+            $collection->id();
+            $collection->foreignId('kendaraan_id')->constrained('kendaraan')->onDelete('cascade');
+            $collection->string('mesin');
+            $collection->integer('kapasitas_penumpang');
+            $collection->string('tipe');
+            $collection->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('mobils');

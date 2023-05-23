@@ -6,24 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateKendaraansTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('kendaraans', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('kendaraans', function (Blueprint $collection) {
+            $collection->id();
+            $collection->integer('tahun_keluaran');
+            $collection->string('warna');
+            $collection->float('harga');
+            $collection->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('kendaraans');
