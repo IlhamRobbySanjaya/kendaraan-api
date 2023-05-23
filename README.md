@@ -62,3 +62,78 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Penjualan Kendaraan API
+API service untuk penjualan kendaraan menggunakan Laravel 8, PHP 8, dan MongoDB 4.2.
+
+Persyaratan Sistem
+Pastikan sistem Anda memenuhi persyaratan berikut sebelum menjalankan aplikasi:
+
+PHP 8
+Composer
+MongoDB 4.2
+Extensi PHP yang diperlukan: mongodb, openssl, tokenizer, xml, ctype
+Langkah-Langkah Instalasi
+Ikuti langkah-langkah di bawah ini untuk menginstal dan menjalankan aplikasi:
+
+Clone Repositori
+
+Clone repositori ini ke dalam direktori lokal:
+
+git clone https://github.com/namauser/penjualan-kendaraan-api.git
+Instal Dependensi
+
+Masuk ke direktori proyek dan jalankan perintah berikut untuk menginstal dependensi:
+
+cd penjualan-kendaraan-api
+composer install
+Konfigurasi Lingkungan
+
+Salin file .env.example menjadi .env:
+
+cp .env.example .env
+Buat database baru di MongoDB dan ubah pengaturan koneksi database di file .env:
+
+DB_CONNECTION=mongodb
+DB_HOST=127.0.0.1
+DB_PORT=27017
+DB_DATABASE=nama_database
+DB_USERNAME=
+DB_PASSWORD=
+Generate Key Aplikasi
+
+Jalankan perintah berikut untuk menghasilkan kunci aplikasi:
+
+
+php artisan key:generate
+Jalankan Migrasi dan Seeder
+
+Jalankan perintah berikut untuk menjalankan migrasi dan seeder:
+
+
+php artisan migrate --seed
+Generate Kunci JWT
+
+Jalankan perintah berikut untuk menghasilkan kunci JWT:
+
+php artisan jwt:secret
+Jalankan Aplikasi
+
+Terakhir, jalankan server lokal untuk menjalankan aplikasi:
+
+php artisan serve
+Aplikasi akan dijalankan pada URL http://localhost:8000.
+
+Pengujian
+Untuk menjalankan unit test, jalankan perintah berikut:
+
+php artisan test
+Pastikan MongoDB sudah terhubung dan dapat diakses untuk menjalankan pengujian dengan sukses.
+
+API Endpoints
+Berikut adalah daftar endpoint API yang tersedia:
+
+GET /api/kendaraan - Lihat stok kendaraan
+DELETE /api/kendaraan/{id} - Penjualan kendaraan
+GET /api/kendaraan/laporan - Laporan penjualan per kendaraan
+Pastikan untuk menyesuaikan dokumentasi endpoint API sesuai dengan implementasi yang ada pada aplikasi Anda.
